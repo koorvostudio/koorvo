@@ -10,23 +10,29 @@ const projectTriggers = () => document.querySelectorAll('.j_case_study');
  */
 const caseStudyContainer = (project) => {
     return `
-        <div class="th-case-study">
-            <div class="th-case-study__image">
-                <a href="${project.url}" target="_blank" title="Visitar site">
-                    <img src="/assets/images/${project.image}" alt="${project.name} - ${project.description}">
-                </a>
-            </div>
+        <div class="krv-case-study">
+            <div class="krv-case-study__content">
+                <div class="krv-case-study__image">
+                    <a href="${project.url}" target="_blank" title="Visitar site">
+                        <img src="/assets/images/${project.image}" alt="${project.name} - ${project.description}">
+                    </a>
+                </div>
 
-            <div class="th-case-study__info">
-                <div class="th-case-study__details">
-                    <h2 class="th-case-study__title">${project.name}</h2>
-                    <div class="th-case-study__description">
-                        ${project.details}
+                <div class="krv-case-study__info">
+                    <div class="krv-case-study__details">
+                        <h2 class="krv-case-study__title">${project.name}</h2>
+                        <div class="krv-case-study__description">
+                            ${project.details}
+                        </div>
+                    </div>
+                    <div class="krv-case-study__action-inside">
+                        <a href="${project.url}" target="_blank" class="krv-button">Visitar Site</a>
                     </div>
                 </div>
-                <div class="th-case-study__action">
-                    <a href="${project.url}" target="_blank" class="th-button">Visitar Site</a>
-                </div>
+            </div>
+
+            <div class="krv-case-study__action-outside">
+                <a href="${project.url}" target="_blank" class="krv-button">Visitar Site</a>
             </div>
         </div>
     `;

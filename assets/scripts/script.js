@@ -15,7 +15,7 @@ MobileMenu();
 // --------------------------------------------------------------------------------------
 
 // Botão flutuante do WhatsApp
-FloatingWhatsAppButton();
+// FloatingWhatsAppButton();
 
 // --------------------------------------------------------------------------------------
 
@@ -43,9 +43,9 @@ CaseStudy();
 // Funções ativadas por eventos do document / window
 window.addEventListener('scroll', () => {
     Header();
-    ShowOrHideWhatsAppButton();
+    // ShowOrHideWhatsAppButton();
 });
 
 document.addEventListener('mousemove', (e) => {
-    ShowOnApproachWhatsAppButton(e.clientX, e.clientY);
+    // ShowOnApproachWhatsAppButton(e.clientX, e.clientY);
 });

@@ -1,8 +1,8 @@
 import { toggleModalScroll } from "./modal-scroll-behavior.js";
 
-const modal = document.getElementById('legal-modal');
-const modalBody = document.getElementById('modal-body');
-const closeBtn = document.querySelectorAll('.close-modal');
+const modal = document.querySelector(".j_modal");
+const modalBody = document.querySelector('.j_modal_body');
+const closeBtn = document.querySelectorAll('.j_close_modal');
 
 /**
  * Função para abrir a modal com o conteúdo específico e controlar o scroll do body
@@ -30,7 +30,7 @@ export const Modal = (content, large = false, notScrolling = false) => {
 
     closeBtn.forEach(trigger => {
         trigger.addEventListener('click', (e) => {
-            if (e.target.classList.contains('close-modal')) {
+            if (e.target.classList.contains('j_close_modal')) {
                 modal.classList.remove('is-open');
                 toggleModalScroll(false);
             }
