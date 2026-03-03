@@ -29,6 +29,10 @@
 
   /* TRANSIÇÃO */
   --transition-default: all 0.3s ease;
+
+  /* TAMANHO DO CONTÊINER */
+  --container-width: 1200px;
+  --container-clearance: 20px;
 }
 
 /* SELEÇÃO DE TEXTO */
@@ -127,9 +131,6 @@ img {
 }
 
 .krv-container {
-  --container-width: 1200px;
-  --container-clearance: 20px;
-
   width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
@@ -264,6 +265,51 @@ img {
   opacity: 1;
   animation: lightSlide 10s linear infinite;
   filter: drop-shadow(0 0 3px var(--color-primary));
+}
+
+.krv-heading {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.krv-heading p {
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.krv-heading p::after {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: var(--color-secondary);
+  display: inline-block;
+}
+
+.krv-heading h2 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.krv-bg-glow {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
 }
 
 /* ESTILIZAÇÃO DAS SEÇÕES DA PÁGINA (Mobile-First) */
@@ -513,6 +559,175 @@ img {
   margin-inline: auto;
 }
 
+/* SEÇÃO SOBRE */
+.krv-about {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.krv-about::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(to bottom, transparent 0%, var(--color-bg-alt) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.krv-about__container {
+  position: relative;
+  z-index: 10;
+}
+
+.krv-about__bg-glow {
+  top: -10%;
+  left: -10%;
+  background: var(--color-primary);
+  animation: floatGlow 15s infinite alternate;
+}
+
+.krv-about__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px 40px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.krv-about__info {
+  flex: 1;
+  max-width: 600px;
+}
+
+.krv-about__info-text p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--color-gray);
+  margin-bottom: 25px;
+}
+
+.krv-about__info-text p:first-child {
+  color: var(--color-white);
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.krv-about__image-content {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;
+  padding: 60px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.krv-about__image-content::before {
+  content: "";
+  position: absolute;
+  /* O segredo: o elemento deve ser maior que o container para cobrir as quinas ao girar */
+  inset: -150%; 
+  z-index: 0;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    transparent 25%,
+    var(--color-primary) 50%,
+    var(--color-secondary) 75%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.krv-about__image-content:hover::before {
+  opacity: 1;
+  animation: borderRotate 3s linear infinite;
+}
+
+.krv-about__image-content::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background-color: var(--color-bg);
+  border-radius: 38px;
+  z-index: 0;
+  opacity: 0;  
+  transition: opacity 0.5s ease;
+}
+
+.krv-about__image-content:hover::after {
+  opacity: 1;
+}
+
+.krv-about__img-card {
+  z-index: 1;
+}
+
+.krv-about__img-card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.krv-about__img-card::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%) scale(.8);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  filter: blur(30px);
+  border-radius: 50%;
+  opacity: 0.8;
+  z-index: -1;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.krv-about__image-content:hover .krv-about__img-card::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.2) rotate(360deg);
+  filter: blur(80px);
+}
+
+.krv-about__img-card img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+  transition: transform 0.5s ease;
+}
+
+.krv-about__image-content:hover .krv-about__img-card img {
+  transform: scale(1.05);
+}
+
+.krv-about__cta {
+  text-align: center;
+}
+
 /* DESIGN RESPONSIVO - MOBILE FIRST */
 @media screen and (min-width: 576px) {
   .krv-hero::before {
@@ -522,6 +737,14 @@ img {
 }
 
 @media screen and (min-width: 992px) {
+  .krv-heading {
+    text-align: start;
+  }
+
+  .krv-heading p {
+    justify-content: start;
+  }
+
   .krv-header__logo {
     font-size: 2rem;
   }
@@ -575,6 +798,15 @@ img {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%234facfe' stroke-width='0.3' stroke-opacity='0.06'%3E%3Cpath d='M30 0 L60 15 L60 45 L30 60 L0 45 L0 15 Z'/%3E%3Cpath d='M30 0 L30 30 L0 15 M30 30 L60 15 M30 30 L30 60'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 600px;
   }
+
+  .krv-about__wrapper {
+    flex-direction: row-reverse;
+    text-align: left;
+  }
+
+  .krv-about__img-card::before {
+    filter: blur(40px);
+  }
 }
 
 /* KEYFRAMES DE ANIMAÇÕES */
@@ -585,5 +817,24 @@ img {
 
   to {
     background-position: -200% 0;
+  }
+}
+
+@keyframes floatGlow {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(50px, 30px) scale(1.1);
+  }
+}
+
+@keyframes borderRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
