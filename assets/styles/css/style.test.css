@@ -1242,6 +1242,7 @@ img {
   background: #25D366;
   font-weight: 800;
   font-size: 1.1rem;
+  padding: 18px 35px;
 }
 
 .krv-contact__whatsapp-button::before {
@@ -1386,6 +1387,10 @@ img {
   .krv-contact__box {
     padding: 80px 40px;
     border-radius: 40px;
+  }
+
+  .krv-contact__whatsapp-button {
+    padding: 20px 45px;
   }
 
   .krv-footer__links {
