@@ -222,6 +222,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 12px;
   padding: 18px 45px;
   border-radius: 50px;
   font-weight: 700;
@@ -342,7 +343,7 @@ img {
   transition: backdrop-filter 0.5s ease;
 }
 
-.th-modal.is-open .th-modal__overlay {
+.krv-modal.is-open .krv-modal__overlay {
   backdrop-filter: blur(12px);
 }
 
@@ -1106,6 +1107,131 @@ img {
   display: none;
 }
 
+/* SEÇÃO DE CONTATO */
+.krv-contact__container {
+  max-width: 1000px;
+}
+
+.krv-contact__box {
+  background: linear-gradient(135deg, rgba(123, 66, 246, 0.1) 0%, rgba(0, 209, 255, 0.05) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 60px 20px;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.krv-contact__box::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(123, 66, 246, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.krv-contact__content {
+  position: relative;
+  z-index: 1;
+}
+
+.krv-contact__content h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.krv-contact__content h2 span {
+  background: var(--gradient-koorvo);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.krv-contact__content p {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.krv-contact__whatsapp-button {
+  background: #25D366;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.krv-contact__whatsapp-button::before {
+  background: linear-gradient(90deg, transparent 0%, #128C7E 30%, #ffffff 50%, #25D366 70%, transparent 100%);
+  background-size: 200% 100%;
+}
+
+.krv-contact__whatsapp-button:hover {
+  background: #20ba5a;
+}
+
+.krv-contact__whatsapp-button:hover::before {
+  filter: drop-shadow(0 0 5px #25D366);
+  animation-duration: 8s;
+}
+
+/* FOOTER */
+.krv-footer {  
+  padding: 60px 0 30px;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.krv-footer__content {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.krv-footer__logo {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.krv-footer__description {
+  max-width: 450px;
+  margin: 0 auto 40px;
+  color: var(--color-gray);
+  font-size: 1.1rem;
+}
+
+.krv-footer__bottom {
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 30px;
+  font-size: 0.9rem;
+  color: rgba(160, 174, 192, 0.5);
+}
+
+.krv-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px 30px;
+  text-align: center;
+}
+
+.krv-footer__links a {
+  transition: 0.3s;
+}
+
+.krv-footer__links a:hover {
+  color: var(--color-secondary);
+}
+
 /* DESIGN RESPONSIVO - MOBILE FIRST */
 @media screen and (min-width: 576px) {
   .krv-modal__content {
@@ -1135,6 +1261,15 @@ img {
   
   .krv-case-study__info {
     text-align: left;
+  }
+
+  .krv-contact__box {
+    padding: 80px 40px;
+    border-radius: 40px;
+  }
+
+  .krv-footer__links {
+    flex-direction: row;
   }
 }
 
@@ -1257,6 +1392,10 @@ img {
 
   .krv-case-study__action-inside {
     display: block;
+  }
+
+  .krv-footer__bottom {
+    flex-direction: row-reverse;
   }
 }
 
