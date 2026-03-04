@@ -5,7 +5,7 @@ const projectTriggers = () => document.querySelectorAll('.j_case_study');
 
 /**
  * Conteúdo HTML para a modal de estudo de caso, gerado dinamicamente com base no projeto selecionado
- * @param {{id: number, name: string, description: string, image: string, details: string, url: string}} project - Objeto contendo as informações do projeto para preencher a modal
+ * @param {{id: number, name: string, description: string, url: string, images: {thumbnail: string, mobile: string, tablet: string, desktop: string}, details: string}} project - Objeto contendo as informações do projeto para preencher a modal
  * @returns {string} HTML string para o conteúdo da modal de estudo de caso
  */
 const caseStudyContainer = (project) => {
@@ -14,7 +14,11 @@ const caseStudyContainer = (project) => {
             <div class="krv-case-study__content">
                 <div class="krv-case-study__image">
                     <a href="${project.url}" target="_blank" title="Visitar site">
-                        <img src="/assets/images/${project.image}" alt="${project.name} - ${project.description}">
+                        <picture>
+                            <source media="(min-width: 992px)" srcset="/assets/images/portfolio/${project.images.desktop}">
+                            <source media="(min-width: 576px)" srcset="/assets/images/portfolio/${project.images.tablet}">
+                            <img src="/assets/images/portfolio/${project.images.mobile}" alt="${project.name} - ${project.description}">
+                        </picture>
                     </a>
                 </div>
 
