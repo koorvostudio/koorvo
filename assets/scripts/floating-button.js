@@ -1,4 +1,4 @@
-const whatsappBtn = document.querySelector('.th-whatsapp-float');
+const whatsappBtn = document.querySelector('.j_whatsapp_button');
 let scrollTimeout;
 let isMouseOver = false;
 
