@@ -168,7 +168,7 @@ img {
   transition: var(--transition-default);
 }
 
-.krv-logo:hover {
+.krv-logo.growing:hover {
   transform: scale(1.05);
 }
 
@@ -536,6 +536,15 @@ img {
   font-size: 1.6rem;
   position: relative;
   z-index: 120;
+}
+
+.krv-header__logo img {
+  width: 160px;
+  transition: var(--transition-default);
+}
+
+.krv-header.scrolling .krv-header__logo img {
+  width: 140px;
 }
 
 .krv-header__icon {
@@ -1263,6 +1272,12 @@ img {
 .krv-footer__content {
   text-align: center;
   margin-bottom: 80px;
+}
+
+.krv-footer__content img {
+  width: 160px;
+  margin-inline: auto;
+  margin-bottom: 20px;
 }
 
 .krv-footer__logo {
