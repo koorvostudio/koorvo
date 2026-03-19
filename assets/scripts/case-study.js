@@ -30,7 +30,7 @@ const caseStudyContainer = (project) => {
                         </div>
                     </div>
                     <div class="krv-case-study__action-inside">
-                        <a href="${project.url}" target="_blank" class="krv-button">Visitar Site</a>
+                        <a href="${project.url}" target="_blank" class="krv-button krv-modal-button">Visitar Site</a>
                     </div>
                 </div>
             </div>

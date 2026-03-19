@@ -274,6 +274,10 @@ img {
   filter: drop-shadow(0 0 3px var(--color-primary));
 }
 
+.krv-modal-button {
+  width: 300px;
+}
+
 .krv-heading {
   margin-bottom: 50px;
   text-align: center;
