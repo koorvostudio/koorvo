@@ -501,8 +501,8 @@ img {
   animation: lightSlide 8s linear infinite;
 }
 
-.krv-whatsapp-floating-button i {
-  font-size: 1.8rem;
+.krv-whatsapp-floating-button svg {
+  font-size: 1.6rem;
   color: var(--color-white);
   z-index: 2;
 }
