@@ -3,7 +3,7 @@ export const projects = [
         id: 1,
         name: "Nathália Reis",
         description: "Site Institucional",
-        url: "https://psinathaliareis.vercel.app/",
+        url: "https://psinathaliareis.com.br",
         images: {
             thumbnail: "nathalia-reis-thumbnail.png",
             mobile: "nathalia-reis-mobile.jpeg",
